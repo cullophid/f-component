@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/vdom/diff.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/vdom/</a> diff.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">95.8% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>114/119</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90.82% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>89/98</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>5/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">95.19% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>99/104</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21463×</span>
+<span class="cline-any cline-yes">28991×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28991×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28991×</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28957×</span>
+<span class="cline-any cline-yes">7494×</span>
+<span class="cline-any cline-yes">7472×</span>
+<span class="cline-any cline-yes">7472×</span>
+<span class="cline-any cline-yes">7472×</span>
+<span class="cline-any cline-yes">7472×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21463×</span>
+<span class="cline-any cline-yes">89×</span>
+<span class="cline-any cline-yes">21374×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21463×</span>
+<span class="cline-any cline-yes">21463×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21463×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21463×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21463×</span>
+<span class="cline-any cline-yes">21463×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21463×</span>
+<span class="cline-any cline-yes">17080×</span>
+<span class="cline-any cline-yes">17080×</span>
+<span class="cline-any cline-yes">27748×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27748×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27747×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21463×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21463×</span>
+<span class="cline-any cline-yes">27803×</span>
+<span class="cline-any cline-yes">27803×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27741×</span>
+<span class="cline-any cline-yes">27742×</span>
+<span class="cline-any cline-yes">27742×</span>
+<span class="cline-any cline-yes">27739×</span>
+<span class="cline-any cline-yes">27739×</span>
+<span class="cline-any cline-yes">27739×</span>
+<span class="cline-any cline-yes">27739×</span>
+<span class="cline-any cline-yes">27739×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27803×</span>
+<span class="cline-any cline-yes">65×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">65×</span>
+<span class="cline-any cline-yes">65×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">65×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21463×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21463×</span>
+<span class="cline-any cline-yes">21463×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19234×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13922×</span>
+<span class="cline-any cline-yes">20354×</span>
+<span class="cline-any cline-yes">20354×</span>
+<span class="cline-any cline-yes">20354×</span>
+<span class="cline-any cline-yes">2213×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+exports.__esModule = true;
+exports['default'] = diff;
+exports.removeOrphanedChildren = removeOrphanedChildren;
+exports.recollectNodeTree = recollectNodeTree;
+&nbsp;
+var _constants = require('../constants');
+&nbsp;
+var _util = require('../util');
+&nbsp;
+var _hooks = require('../hooks');
+&nbsp;
+var _ = require('.');
+&nbsp;
+var _functionalComponent = require('./functional-component');
+&nbsp;
+var _component = require('./component');
+&nbsp;
+var _dom = require('../dom');
+&nbsp;
+var _domRecycler = require('../dom/recycler');
+&nbsp;
+/** Apply differences in a given vnode (and it's deep children) to a real DOM Node.
+ *	@param {Element} [dom=null]		A DOM node to mutate into the shape of the `vnode`
+ *	@param {VNode} vnode			A VNode (with descendants forming a tree) representing the desired DOM structure
+ *	@returns {Element} dom			The created/mutated element
+ *	@private
+ */
+&nbsp;
+function diff(dom, vnode, context) {
+	var originalAttributes = vnode.attributes;
+&nbsp;
+	while (_functionalComponent.isFunctionalComponent(vnode)) {
+		vnode = _functionalComponent.buildFunctionalComponent(vnode, context);
+	}
+&nbsp;
+	if (_util.isFunction(vnode.nodeName)) {
+		return _component.buildComponentFromVNode(dom, vnode, context);
+	}
+&nbsp;
+	if (_util.isString(vnode)) {
+		if (dom) {
+			var type = _dom.getNodeType(dom);
+			<span class="missing-if-branch" title="else path not taken" >E</span>if (type === 3) {
+				dom[_constants.TEXT_CONTENT] = vnode;
+				return dom;
+			} else <span class="cstat-no" title="statement not covered" >i</span>f (type === 1) {
+<span class="cstat-no" title="statement not covered" >				_domRecycler.collectNode(dom);</span>
+			}
+		}
+		return document.createTextNode(vnode);
+	}
+&nbsp;
+	// return diffNode(dom, vnode, context);
+	// }
+&nbsp;
+	/** Morph a DOM node to look like the given VNode. Creates DOM if it doesn't exist. */
+	// function diffNode(dom, vnode, context) {
+	var out = dom,
+	    nodeName = vnode.nodeName || <span class="branch-1 cbranch-no" title="branch not covered" >_</span>constants.UNDEFINED_ELEMENT;
+&nbsp;
+	if (!dom) {
+		out = _domRecycler.createNode(nodeName);
+	} else if (_util.toLowerCase(dom.nodeName) !== nodeName) {
+		out = _domRecycler.createNode(nodeName);
+		// move children into the replacement node
+		_dom.appendChildren(out, _util.toArray(dom.childNodes));
+		// reclaim element nodes
+		recollectNodeTree(dom);
+	}
+&nbsp;
+	innerDiffNode(out, vnode, context);
+	diffAttributes(out, vnode);
+&nbsp;
+	if (originalAttributes &amp;&amp; originalAttributes.ref) {
+		(out[_constants.ATTR_KEY].ref = originalAttributes.ref)(out);
+	}
+&nbsp;
+	return out;
+}
+&nbsp;
+/** Apply child and attribute changes between a VNode and a DOM Node to the DOM. */
+function innerDiffNode(dom, vnode, context) {
+	var children = undefined,
+	    keyed = undefined,
+	    keyedLen = 0,
+	    len = dom.childNodes.length,
+	    childrenLen = 0;
+	if (len) {
+		children = [];
+		for (var i = 0; i &lt; len; i++) {
+			var child = dom.childNodes[i],
+			    key = child._component ? child._component.__key : _dom.getAccessor(child, 'key');
+			if (!_util.empty(key)) {
+				<span class="missing-if-branch" title="else path not taken" >E</span>if (!keyed) keyed = {};
+				keyed[key] = child;
+				keyedLen++;
+			} else {
+				children[childrenLen++] = child;
+			}
+		}
+	}
+&nbsp;
+	var vchildren = vnode.children,
+	    vlen = vchildren &amp;&amp; vchildren.length,
+	    min = 0;
+	if (vlen) {
+		for (var i = 0; i &lt; vlen; i++) {
+			var vchild = vchildren[i],
+			    child = undefined;
+&nbsp;
+			// if (isFunctionalComponent(vchild)) {
+			// 	vchild = buildFunctionalComponent(vchild);
+			// }
+&nbsp;
+			// attempt to find a node based on key matching
+			if (keyedLen) {
+				var attrs = vchild.attributes,
+				    key = attrs &amp;&amp; attrs.key;
+				<span class="missing-if-branch" title="if path not taken" >I</span>if (!_util.empty(key) &amp;&amp; _util.hasOwnProperty.call(keyed, key)) {
+<span class="cstat-no" title="statement not covered" >					child = keyed[key];</span>
+<span class="cstat-no" title="statement not covered" >					keyed[key] = null;</span>
+<span class="cstat-no" title="statement not covered" >					keyedLen--;</span>
+				}
+			}
+&nbsp;
+			// attempt to pluck a node of the same type from the existing children
+			if (!child &amp;&amp; min &lt; childrenLen) {
+				for (var j = min; j &lt; childrenLen; j++) {
+					var c = children[j];
+					if (c &amp;&amp; _.isSameNodeType(c, vchild)) {
+						child = c;
+						children[j] = null;
+						if (j === childrenLen - 1) childrenLen--;
+						if (j === min) min++;
+						break;
+					}
+				}
+			}
+&nbsp;
+			// morph the matched/found/created DOM child to match vchild (deep)
+			child = diff(child, vchild, context);
+&nbsp;
+			if (dom.childNodes[i] !== child) {
+				var c = child.parentNode !== dom &amp;&amp; child._component,
+				    next = dom.childNodes[i + 1];
+				if (c) _hooks.deepHook(c, 'componentWillMount');
+				if (next) {
+					dom.insertBefore(child, next);
+				} else {
+					dom.appendChild(child);
+				}
+				if (c) _hooks.deepHook(c, 'componentDidMount');
+			}
+		}
+	}
+&nbsp;
+	if (keyedLen) {
+		/*eslint guard-for-in:0*/
+		for (var i in keyed) {
+			<span class="missing-if-branch" title="else path not taken" >E</span>if (_util.hasOwnProperty.call(keyed, i) &amp;&amp; keyed[i]) {
+				children[min = childrenLen++] = keyed[i];
+			}
+		}
+	}
+&nbsp;
+	// remove orphaned children
+	if (min &lt; childrenLen) {
+		removeOrphanedChildren(children);
+	}
+}
+&nbsp;
+/** Reclaim children that were unreferenced in the desired VTree */
+&nbsp;
+function removeOrphanedChildren(children, unmountOnly) {
+	for (var i = children.length; i--;) {
+		var child = children[i];
+		if (child) {
+			recollectNodeTree(child, unmountOnly);
+		}
+	}
+}
+&nbsp;
+/** Reclaim an entire tree of nodes, starting at the root. */
+&nbsp;
+function recollectNodeTree(node, unmountOnly) {
+	// @TODO: Need to make a call on whether Preact should remove nodes not created by itself.
+	// Currently it *does* remove them. Discussion: https://github.com/developit/preact/issues/39
+	//if (!node[ATTR_KEY]) return;
+&nbsp;
+	var attrs = node[_constants.ATTR_KEY];
+	if (attrs) _hooks.hook(attrs, 'ref', null);
+&nbsp;
+	var component = node._component;
+	if (component) {
+		_component.unmountComponent(component, !unmountOnly);
+	} else {
+		if (!unmountOnly) {
+			if (_dom.getNodeType(node) !== 1) {
+				_dom.removeNode(node);
+				return;
+			}
+&nbsp;
+			_domRecycler.collectNode(node);
+		}
+&nbsp;
+		var c = node.childNodes;
+		if (c &amp;&amp; c.length) {
+			removeOrphanedChildren(c, unmountOnly);
+		}
+	}
+}
+&nbsp;
+/** Apply differences in attributes from a VNode to the given DOM Node. */
+function diffAttributes(dom, vnode) {
+	var old = _dom.getNodeAttributes(dom) || <span class="branch-1 cbranch-no" title="branch not covered" >_</span>constants.EMPTY,
+	    attrs = vnode.attributes || _constants.EMPTY,
+	    name = undefined,
+	    value = undefined;
+&nbsp;
+	// removed
+	for (name in old) {
+		if (_util.empty(attrs[name])) {
+			_dom.setAccessor(dom, name, null);
+		}
+	}
+&nbsp;
+	// new &amp; updated
+	if (attrs !== _constants.EMPTY) {
+		for (name in attrs) {
+			<span class="missing-if-branch" title="else path not taken" >E</span>if (_util.hasOwnProperty.call(attrs, name)) {
+				value = attrs[name];
+				if (!_util.empty(value) &amp;&amp; value != _dom.getAccessor(dom, name)) {
+					_dom.setAccessor(dom, name, value);
+				}
+			}
+		}
+	}
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Apr 26 2016 18:59:34 GMT-0400 (EDT)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

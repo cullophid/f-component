@@ -1,0 +1,27 @@
+{
+  "name": "f-component",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify --extension .coffee --extension .js -t coffeeify src/index.coffee -o build/f-component.js",
+    "watch": "watchify -d --extension .coffee --extension .js -t coffeeify src/index.coffee -o build/f-component.js",
+    "example": "parallelshell 'watchify -d --extension .coffee --extension .js -t coffeeify example/script.coffee -o example/bundle.js' 'livereload example' 'serve example'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "document-register-element": "^0.5.4",
+    "preact": "^4.8.0",
+    "ramda": "^0.21.0"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.1",
+    "coffee-script": "^1.10.0",
+    "coffeeify": "^2.0.1",
+    "livereload": "^0.4.1",
+    "parallelshell": "^2.0.0",
+    "serve": "^1.4.0",
+    "watchify": "^3.7.0"
+  }
+}
