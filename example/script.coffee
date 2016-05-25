@@ -1,6 +1,6 @@
-{merge} = require 'ramda'
-{h} = require 'preact'
-component = require '../src'
+{h, component} = require '../src'
+
+merge = (a, b) => Object.assign {}, a, b
 
 component
   name: 'my-child'

@@ -1,11 +1,10 @@
-{forEach, without} = require 'ramda'
 
 module.exports = (reducer) =>
   model = reducer(null, {})
   subscribers = []
   dispatch = (action) =>
     model = reducer(model, action)
-    forEach ((fn) => fn model), subscribers
+    subscribers.forEach (fn) => fn model
     action
 
   getState = () => model
@@ -13,6 +12,6 @@ module.exports = (reducer) =>
   subscribe = (subscriber) =>
     subscribers = [subscribers..., subscriber]
     () =>
-      subscribers = without subscriber, subscribers
+      subscribers = subscribers.filter (sub) => sub != subscriber
 
   {dispatch, subscribe, getState}

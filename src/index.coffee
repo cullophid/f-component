@@ -2,7 +2,9 @@
 registerElement = require './register'
 redux = require './redux'
 
-module.exports = ({name, view, update}) =>
+exports.h = h
+
+exports.component = ({name, view, update}) =>
   vdom = null
   {dispatch, subscribe, getState} = redux(update)
   renderView = (state, props, parent) =>
